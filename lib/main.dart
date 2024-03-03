@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/%08page/intro_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Home',
       theme: ThemeData(),
-      home: const MainPage(),
+      home: const IntroPage(),
     );
   }
 }
