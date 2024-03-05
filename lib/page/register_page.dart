@@ -27,8 +27,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool isEmailValid = true; // 처음에는 에러 없음으로 판단
-  bool isPasswordValid = true; // 처음에는 에러 없음으로 판단
+  bool isEmailValid = true;
+  bool isPasswordValid = true;
 
   @override
   void initState() {
