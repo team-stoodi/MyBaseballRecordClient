@@ -19,7 +19,7 @@ class _StickyBottomButtonState extends State<StickyBottomButton> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.grey,
+      color: Colors.grey[300],
       child: GestureDetector(
         onTap: widget.enabled ? widget.onClick : null,
         child: Container(
