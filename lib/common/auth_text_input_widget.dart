@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 
-class AuthTextInputWidget extends StatefulWidget {
+class AuthTextInputWidget extends StatelessWidget {
   final String labelText;
   final String hintText;
+  final TextEditingController controller;
+  final VoidCallback onClearPressed;
+  final bool isTextNotEmpty;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final TextStyle? textStyle;
 
   const AuthTextInputWidget({
     super.key,
     required this.labelText,
     required this.hintText,
+    required this.controller,
+    required this.onClearPressed,
+    required this.isTextNotEmpty,
+    required this.keyboardType,
+    this.obscureText = false,
+    this.textStyle,
   });
-
-  @override
-  State<AuthTextInputWidget> createState() => _AuthTextInputWidgetState();
-}
-
-class _AuthTextInputWidgetState extends State<AuthTextInputWidget> {
-  final TextEditingController _controller = TextEditingController();
-  bool _isTextNotEmpty = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,19 +36,18 @@ class _AuthTextInputWidgetState extends State<AuthTextInputWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.labelText,
+            labelText,
             style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
           ),
           TextField(
-            controller: _controller,
-            onChanged: (value) {
-              setState(() {
-                _isTextNotEmpty = value.isNotEmpty;
-              });
-            },
+            style: textStyle,
+            keyboardType: keyboardType,
+            obscureText: obscureText,
+            controller: controller,
+            onChanged: (value) {},
             decoration: InputDecoration(
               border: InputBorder.none,
-              hintText: widget.hintText,
+              hintText: hintText,
               hintStyle: const TextStyle(
                 fontSize: 20,
                 color: Colors.grey,
@@ -52,13 +55,8 @@ class _AuthTextInputWidgetState extends State<AuthTextInputWidget> {
               ),
               suffixIcon: IconButton(
                 icon: const Icon(Icons.cancel),
-                color: _isTextNotEmpty ? Colors.black : Colors.grey,
-                onPressed: () {
-                  setState(() {
-                    _controller.clear();
-                    _isTextNotEmpty = false;
-                  });
-                },
+                color: isTextNotEmpty ? Colors.black : Colors.grey,
+                onPressed: onClearPressed,
               ),
             ),
           ),

@@ -64,8 +64,8 @@ class IntroPage extends StatelessWidget {
               const SizedBox(height: 8),
               AuthButton(
                 onClick: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const RegisterPage()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => RegisterPage()));
                 },
                 iconData: FontAwesomeIcons.at,
                 backgroundColor: Colors.black,
