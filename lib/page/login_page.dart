@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:my_baseball_record/%08page/login_page.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
 
@@ -17,14 +15,14 @@ bool validatePassword(String password) {
   return regex.hasMatch(password);
 }
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isEmailValid = true;
@@ -64,10 +62,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         '회원가입',
                         style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[300],
+                        ),
                       ),
                       Text(
                         ' | ',
@@ -77,21 +78,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: Colors.grey[300],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
-                        },
-                        child: Text(
-                          '로그인',
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[300],
-                          ),
-                        ),
+                      const Text(
+                        '로그인',
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
