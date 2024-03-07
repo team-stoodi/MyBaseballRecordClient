@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_baseball_record/page/intro_page.dart';
-import 'package:my_baseball_record/page/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Home',
       theme: ThemeData(
+          fontFamily: "Pretendard",
           textSelectionTheme:
               const TextSelectionThemeData(cursorColor: Colors.black)),
       home: const IntroPage(),
