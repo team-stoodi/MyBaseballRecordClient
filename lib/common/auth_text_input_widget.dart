@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
 
 class AuthTextInputWidget extends StatelessWidget {
   final String labelText;
@@ -30,7 +31,7 @@ class AuthTextInputWidget extends StatelessWidget {
       height: 100,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: AppColor.greyColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -39,7 +40,10 @@ class AuthTextInputWidget extends StatelessWidget {
         children: [
           Text(
             labelText,
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+            style: const TextStyle(
+                color: AppColor.blackColor50,
+                fontSize: 12,
+                fontWeight: FontWeight.w400),
           ),
           TextField(
             style: textStyle,
@@ -52,12 +56,14 @@ class AuthTextInputWidget extends StatelessWidget {
               hintText: hintText,
               hintStyle: const TextStyle(
                 fontSize: 20,
-                color: Colors.grey,
+                color: AppColor.blackColor10,
                 fontWeight: FontWeight.bold,
               ),
               suffixIcon: IconButton(
                 icon: const Icon(Icons.cancel),
-                color: isTextNotEmpty ? Colors.black : Colors.grey,
+                color: isTextNotEmpty
+                    ? AppColor.blackColor50
+                    : AppColor.blackColor10,
                 onPressed: onClearPressed,
               ),
             ),

@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
-
-bool validateEmail(String email) {
-  String emailRegex = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
-  RegExp regex = RegExp(emailRegex);
-  return regex.hasMatch(email);
-}
-
-bool validatePassword(String password) {
-  String passwordRegex =
-      r'^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&(),])[A-Za-z\d@$!%*?&(),]{8,16}$';
-  RegExp regex = RegExp(passwordRegex);
-  return regex.hasMatch(password);
-}
+import 'package:my_baseball_record/common/util/validate.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -60,14 +49,14 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Text(
                         '회원가입',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[300],
+                          color: AppColor.blackColor20,
                         ),
                       ),
                       Text(
@@ -75,10 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[300],
+                          color: AppColor.blackColor10,
                         ),
                       ),
-                      const Text(
+                      Text(
                         '로그인',
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
@@ -102,12 +91,15 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.only(top: 8),
                       child: Text(
                         '이메일을 정확하게 입력해주세요.',
-                        style: TextStyle(color: Colors.red),
+                        style: TextStyle(color: AppColor.redColor),
                       ),
                     ),
                   const SizedBox(height: 8),
                   if (isEmailValid)
-                    const Text('비밀번호 찾기와 같은 꼭 필요한 안내 메일이 발송됩니다.'),
+                    const Text(
+                      '비밀번호 찾기와 같은 꼭 필요한 안내 메일이 발송됩니다.',
+                      style: TextStyle(color: AppColor.blackColor50),
+                    ),
                   const SizedBox(height: 16),
                   AuthTextInputWidget(
                     textStyle: const TextStyle(
@@ -125,11 +117,12 @@ class _LoginPageState extends State<LoginPage> {
                   if (!isPasswordValid)
                     const Text(
                       '영문/숫자/특수문자를 조합한 8-16자로 확인해주세요.',
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: AppColor.redColor),
                     ),
                   if (isPasswordValid)
                     const Text(
                       '영문/숫자/특수문자를 8-16자리로 조합해주세요.',
+                      style: TextStyle(color: AppColor.blackColor50),
                     ),
                 ],
               ),

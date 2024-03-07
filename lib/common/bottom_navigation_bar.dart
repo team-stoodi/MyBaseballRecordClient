@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_baseball_record/%08page/profile_page.dart';
-import 'package:my_baseball_record/%08page/record_page.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
+import 'package:my_baseball_record/page/profile_page.dart';
+import 'package:my_baseball_record/page/record_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({
@@ -36,7 +37,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const Color selectedColor = Colors.black;
+    const Color selectedColor = AppColor.blackColor;
 
     return BottomNavigationBar(
       items: const [

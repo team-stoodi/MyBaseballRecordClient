@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_baseball_record/%08page/login_page.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
+
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
-
-bool validateEmail(String email) {
-  String emailRegex = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
-  RegExp regex = RegExp(emailRegex);
-  return regex.hasMatch(email);
-}
-
-bool validatePassword(String password) {
-  String passwordRegex =
-      r'^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&(),])[A-Za-z\d@$!%*?&(),]{8,16}$';
-  RegExp regex = RegExp(passwordRegex);
-  return regex.hasMatch(password);
-}
+import 'package:my_baseball_record/common/util/validate.dart';
+import 'package:my_baseball_record/page/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -68,12 +58,12 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                         ' | ',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[300],
+                          color: AppColor.blackColor10,
                         ),
                       ),
                       GestureDetector(
@@ -83,12 +73,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               MaterialPageRoute(
                                   builder: (context) => const LoginPage()));
                         },
-                        child: Text(
+                        child: const Text(
                           '로그인',
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: Colors.grey[300],
+                            color: AppColor.blackColor20,
                           ),
                         ),
                       ),
@@ -111,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsets.only(top: 8),
                       child: Text(
                         '이메일을 정확하게 입력해주세요.',
-                        style: TextStyle(color: Colors.red),
+                        style: TextStyle(color: AppColor.redColor),
                       ),
                     ),
                   const SizedBox(height: 8),
@@ -134,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   if (!isPasswordValid)
                     const Text(
                       '영문/숫자/특수문자를 조합한 8-16자로 확인해주세요.',
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: AppColor.redColor),
                     ),
                   if (isPasswordValid)
                     const Text(

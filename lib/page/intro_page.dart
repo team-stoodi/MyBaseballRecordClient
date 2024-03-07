@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_baseball_record/%08page/register_page.dart';
 import 'package:my_baseball_record/common/auth_button.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
+import 'package:my_baseball_record/page/register_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -9,7 +10,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColor.blackColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
@@ -20,21 +21,21 @@ class IntroPage extends StatelessWidget {
               const Text(
                 '나의 오늘을',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                     fontSize: 48,
                     fontWeight: FontWeight.bold),
               ),
               const Text(
                 '기록하다.',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                     fontSize: 48,
                     fontWeight: FontWeight.bold),
               ),
               const Text(
                 'My Baseball Record',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
@@ -46,20 +47,20 @@ class IntroPage extends StatelessWidget {
               AuthButton(
                   onClick: () {},
                   icon: const FaIcon(FontAwesomeIcons.apple),
-                  backgroundColor: Colors.white,
+                  backgroundColor: AppColor.whiteColor,
                   text: 'Apple로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
                 onClick: () {},
                 icon: const FaIcon(FontAwesomeIcons.k),
-                backgroundColor: Colors.yellow,
+                backgroundColor: AppColor.yellowColor,
                 text: '카카오로 계속하기',
               ),
               const SizedBox(height: 8),
               AuthButton(
                   onClick: () {},
                   icon: const FaIcon(FontAwesomeIcons.n),
-                  backgroundColor: Colors.green,
+                  backgroundColor: AppColor.greenColor,
                   text: '네이버로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
@@ -68,10 +69,10 @@ class IntroPage extends StatelessWidget {
                       builder: (context) => const RegisterPage()));
                 },
                 icon: const FaIcon(FontAwesomeIcons.at),
-                backgroundColor: Colors.black,
-                borderColor: Colors.white,
+                backgroundColor: AppColor.blackColor,
+                borderColor: AppColor.whiteColor,
                 text: '이메일로 가입하기',
-                textColor: Colors.white,
+                textColor: AppColor.whiteColor,
               ),
             ],
           ),
