@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class StickyBottomButton extends StatefulWidget {
+class StickyBottomButton extends StatelessWidget {
   final String text;
   final VoidCallback onClick;
   final bool enabled;
@@ -12,20 +12,21 @@ class StickyBottomButton extends StatefulWidget {
   });
 
   @override
-  State<StickyBottomButton> createState() => _StickyBottomButtonState();
-}
-
-class _StickyBottomButtonState extends State<StickyBottomButton> {
-  @override
   Widget build(BuildContext context) {
+    Color buttonColor = enabled ? Colors.black : Colors.grey.shade300;
+    Color textColor = Colors.white;
+
     return BottomAppBar(
-      color: Colors.grey[300],
+      color: enabled ? buttonColor : Colors.grey.shade300,
       child: GestureDetector(
-        onTap: widget.enabled ? widget.onClick : null,
+        onTap: enabled ? onClick : null,
         child: Container(
           height: 60,
           alignment: Alignment.center,
-          child: Text(widget.text),
+          child: Text(
+            text,
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
