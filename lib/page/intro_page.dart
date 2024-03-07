@@ -45,29 +45,29 @@ class IntroPage extends StatelessWidget {
               ),
               AuthButton(
                   onClick: () {},
-                  iconData: FontAwesomeIcons.apple,
+                  icon: const FaIcon(FontAwesomeIcons.apple),
                   backgroundColor: Colors.white,
                   text: 'Apple로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
                 onClick: () {},
-                iconData: FontAwesomeIcons.k,
+                icon: const FaIcon(FontAwesomeIcons.k),
                 backgroundColor: Colors.yellow,
                 text: '카카오로 계속하기',
               ),
               const SizedBox(height: 8),
               AuthButton(
                   onClick: () {},
-                  iconData: FontAwesomeIcons.n,
+                  icon: const FaIcon(FontAwesomeIcons.n),
                   backgroundColor: Colors.green,
                   text: '네이버로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
                 onClick: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const RegisterPage()));
                 },
-                iconData: FontAwesomeIcons.at,
+                icon: const FaIcon(FontAwesomeIcons.at),
                 backgroundColor: Colors.black,
                 borderColor: Colors.white,
                 text: '이메일로 가입하기',

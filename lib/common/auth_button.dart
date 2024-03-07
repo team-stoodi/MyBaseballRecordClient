@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AuthButton extends StatelessWidget {
   final VoidCallback onClick;
-  final IconData iconData;
+  final Widget icon;
   final Color backgroundColor;
   final Color? borderColor;
   final Color? textColor;
@@ -13,7 +12,7 @@ class AuthButton extends StatelessWidget {
   const AuthButton({
     super.key,
     required this.onClick,
-    required this.iconData,
+    required this.icon,
     required this.backgroundColor,
     required this.text,
     this.borderColor,
@@ -41,7 +40,9 @@ class AuthButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FaIcon(iconData, color: textColor ?? Colors.black),
+              IconTheme(
+                  data: IconThemeData(color: textColor ?? Colors.black),
+                  child: icon),
               const SizedBox(width: 8),
               Text(
                 text,
