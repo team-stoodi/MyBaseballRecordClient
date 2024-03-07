@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_baseball_record/%08page/intro_page.dart';
+import 'package:my_baseball_record/%08page/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,27 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Home',
       theme: ThemeData(
           textSelectionTheme:
               const TextSelectionThemeData(cursorColor: Colors.black)),
-      home: const IntroPage(),
-    );
-  }
-}
-
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Page'),
-      ),
-      body: const Center(
-        child: Text('Main Page'),
-      ),
+      home: const MainPage(),
     );
   }
 }
