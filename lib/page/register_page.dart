@@ -1,10 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool isEmailNotEmpty = false;
+  bool isPasswordNotEmpty = false;
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.addListener(updateStatus);
+    passwordController.addListener(updateStatus);
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void updateStatus() {
+    setState(() {
+      isEmailNotEmpty = emailController.text.isNotEmpty;
+      isPasswordNotEmpty = passwordController.text.isNotEmpty;
+    });
+  }
+
+  void clearEmailField() {
+    emailController.clear();
+  }
+
+  void clearPasswordField() {
+    passwordController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,32 +50,44 @@ class RegisterPage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Text('회원가입'),
                       Text(' | '),
                       Text('로그인'),
                     ],
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   AuthTextInputWidget(
+                    textStyle: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.bold),
+                    keyboardType: TextInputType.emailAddress,
                     labelText: '이메일',
                     hintText: '이메일',
+                    controller: emailController,
+                    onClearPressed: clearEmailField,
+                    isTextNotEmpty: isEmailNotEmpty,
                   ),
-                  SizedBox(height: 8),
-                  Text('비밀번호 찾기와 같은 꼭 필요한 안내 메일이 발송됩니다.'),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 8),
+                  const Text('비밀번호 찾기와 같은 꼭 필요한 안내 메일이 발송됩니다.'),
+                  const SizedBox(height: 16),
                   AuthTextInputWidget(
+                    textStyle: const TextStyle(fontSize: 30),
+                    obscureText: true,
+                    keyboardType: TextInputType.text,
                     labelText: '비밀번호',
                     hintText: '비밀번호',
+                    controller: passwordController,
+                    onClearPressed: clearPasswordField,
+                    isTextNotEmpty: isPasswordNotEmpty,
                   ),
-                  SizedBox(height: 8),
-                  Text('영문/숫자/특수문자를 8-16자리로 조합해주세요.'),
+                  const SizedBox(height: 8),
+                  const Text('영문/숫자/특수문자를 8-16자리로 조합해주세요.'),
                 ],
               ),
             ),
@@ -48,7 +98,7 @@ class RegisterPage extends StatelessWidget {
               child: StickyBottomButton(
                 text: '바로 시작하기',
                 onClick: () {},
-                enabled: false,
+                enabled: isEmailNotEmpty && isPasswordNotEmpty,
               ),
             ),
           ],
