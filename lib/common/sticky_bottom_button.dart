@@ -13,11 +13,14 @@ class StickyBottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color buttonColor = enabled ? Colors.black : Colors.grey.shade300;
-    Color textColor = Colors.white;
+    final Color greyBtnColor = Colors.grey.shade300;
+    const Color textColor = Colors.white;
+
+    Color buttonColor = enabled ? Colors.black : greyBtnColor;
+    // Color textColor = Colors.white;
 
     return BottomAppBar(
-      color: enabled ? buttonColor : Colors.grey.shade300,
+      color: enabled ? buttonColor : greyBtnColor,
       child: GestureDetector(
         onTap: enabled ? onClick : null,
         child: Container(
@@ -25,7 +28,8 @@ class StickyBottomButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             text,
-            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+            style:
+                const TextStyle(color: textColor, fontWeight: FontWeight.bold),
           ),
         ),
       ),
