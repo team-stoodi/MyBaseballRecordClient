@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_baseball_record/%08page/register_page.dart';
 import 'package:my_baseball_record/common/auth_button.dart';
 
 class IntroPage extends StatelessWidget {
@@ -62,7 +63,10 @@ class IntroPage extends StatelessWidget {
                   text: '네이버로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
-                onClick: () {},
+                onClick: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const RegisterPage()));
+                },
                 icon: const FaIcon(FontAwesomeIcons.at),
                 backgroundColor: Colors.black,
                 borderColor: Colors.white,

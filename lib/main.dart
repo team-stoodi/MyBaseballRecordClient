@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Home',
-      theme: ThemeData(),
+      theme: ThemeData(
+          textSelectionTheme:
+              const TextSelectionThemeData(cursorColor: Colors.black)),
       home: const IntroPage(),
     );
   }
