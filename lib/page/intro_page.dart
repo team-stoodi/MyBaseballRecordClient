@@ -45,20 +45,20 @@ class IntroPage extends StatelessWidget {
               ),
               AuthButton(
                   onClick: () {},
-                  icon: const FaIcon(FontAwesomeIcons.apple),
+                  iconData: FontAwesomeIcons.apple,
                   backgroundColor: Colors.white,
                   text: 'Apple로 계속하기'),
               const SizedBox(height: 8),
               AuthButton(
                 onClick: () {},
-                icon: const FaIcon(FontAwesomeIcons.k),
+                iconData: FontAwesomeIcons.k,
                 backgroundColor: Colors.yellow,
                 text: '카카오로 계속하기',
               ),
               const SizedBox(height: 8),
               AuthButton(
                   onClick: () {},
-                  icon: const FaIcon(FontAwesomeIcons.n),
+                  iconData: FontAwesomeIcons.n,
                   backgroundColor: Colors.green,
                   text: '네이버로 계속하기'),
               const SizedBox(height: 8),
@@ -67,10 +67,10 @@ class IntroPage extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const RegisterPage()));
                 },
-                icon: const FaIcon(FontAwesomeIcons.at),
+                iconData: FontAwesomeIcons.at,
                 backgroundColor: Colors.black,
                 borderColor: Colors.white,
-                text: '이메일로 계속하기',
+                text: '이메일로 가입하기',
                 textColor: Colors.white,
               ),
             ],
