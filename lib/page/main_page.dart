@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_baseball_record/common/app_bar.dart';
+import 'package:my_baseball_record/common/bottom_navigation_bar.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -14,9 +15,18 @@ class MainPage extends StatelessWidget {
       ),
       body: const SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Column(
+            children: [
+              Text(
+                '메인',
+                style: TextStyle(fontSize: 28),
+              ),
+            ],
+          ),
         ),
       ),
+      bottomNavigationBar: const BottomNavigationBarWidget(),
     );
   }
 }

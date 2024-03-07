@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_baseball_record/%08page/intro_page.dart';
 import 'package:my_baseball_record/%08page/main_page.dart';
 
 void main() {
