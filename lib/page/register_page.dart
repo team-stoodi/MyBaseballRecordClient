@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_baseball_record/%08page/login_page.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
@@ -105,6 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onClearPressed: () => emailController.clear(),
                     isTextNotEmpty: emailController.text.isNotEmpty,
                     keyboardType: TextInputType.emailAddress,
+                    onChanged: (String value) {},
                   ),
                   if (!isEmailValid)
                     const Padding(
@@ -128,6 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     isTextNotEmpty: passwordController.text.isNotEmpty,
                     keyboardType: TextInputType.text,
                     obscureText: true,
+                    onChanged: (String value) {},
                   ),
                   const SizedBox(height: 8),
                   if (!isPasswordValid)

@@ -95,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     onClearPressed: () => emailController.clear(),
                     isTextNotEmpty: emailController.text.isNotEmpty,
                     keyboardType: TextInputType.emailAddress,
+                    onChanged: (String value) {},
                   ),
                   if (!isEmailValid)
                     const Padding(
@@ -118,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                     isTextNotEmpty: passwordController.text.isNotEmpty,
                     keyboardType: TextInputType.text,
                     obscureText: true,
+                    onChanged: (String value) {},
                   ),
                   const SizedBox(height: 8),
                   if (!isPasswordValid)

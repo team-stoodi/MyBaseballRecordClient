@@ -9,6 +9,7 @@ class AuthTextInputWidget extends StatelessWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final TextStyle? textStyle;
+  final Function(String) onChanged;
 
   const AuthTextInputWidget({
     super.key,
@@ -20,6 +21,7 @@ class AuthTextInputWidget extends StatelessWidget {
     required this.keyboardType,
     this.obscureText = false,
     this.textStyle,
+    required this.onChanged,
   });
 
   @override
@@ -44,7 +46,7 @@ class AuthTextInputWidget extends StatelessWidget {
             keyboardType: keyboardType,
             obscureText: obscureText,
             controller: controller,
-            onChanged: (value) {},
+            onChanged: onChanged,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
