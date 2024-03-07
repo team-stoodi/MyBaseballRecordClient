@@ -10,7 +10,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const AppBarWidget(
-          trailingIcon: Icon(Icons.alarm),
+          trailingIcon: Icon(Icons.notifications_none),
         ),
       ),
       body: const SafeArea(
