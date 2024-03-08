@@ -29,6 +29,7 @@ class AuthButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.0),
           border: Border.all(
+            width: 0.5,
             color: borderColor ?? AppColor.transparent,
           ),
           color: backgroundColor,
@@ -36,23 +37,23 @@ class AuthButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 24.0,
-            vertical: 10.0,
+            vertical: 9.0,
           ),
           child: SizedBox(
-            height: 32,
+            height: 30,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconTheme(
                     data:
-                        IconThemeData(color: textColor ?? AppColor.blackColor),
+                        IconThemeData(color: textColor ?? AppColor.graysBlack),
                     child: icon),
                 const SizedBox(width: 8),
                 Text(
                   text,
                   style: TextStyle(
-                      color: textColor ?? AppColor.blackColor,
-                      fontSize: 17.0,
+                      color: textColor ?? AppColor.graysBlack,
+                      fontSize: 15.0,
                       letterSpacing: 0.2),
                 ),
               ],

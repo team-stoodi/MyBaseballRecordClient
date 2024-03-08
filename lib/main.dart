@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "Pretendard",
           textSelectionTheme:
-              const TextSelectionThemeData(cursorColor: AppColor.blackColor)),
+              const TextSelectionThemeData(cursorColor: AppColor.graysBlack)),
       home: const IntroPage(),
     );
   }

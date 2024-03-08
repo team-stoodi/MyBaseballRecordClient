@@ -31,7 +31,7 @@ class AuthTextInputWidget extends StatelessWidget {
       height: 100,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: AppColor.greyColor,
+        color: AppColor.background246,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -41,7 +41,7 @@ class AuthTextInputWidget extends StatelessWidget {
           Text(
             labelText,
             style: const TextStyle(
-                color: AppColor.blackColor50,
+                color: AppColor.primaryBlue1,
                 fontSize: 12,
                 fontWeight: FontWeight.w400),
           ),
@@ -56,14 +56,12 @@ class AuthTextInputWidget extends StatelessWidget {
               hintText: hintText,
               hintStyle: const TextStyle(
                 fontSize: 20,
-                color: AppColor.blackColor10,
+                color: AppColor.textPrimary10,
                 fontWeight: FontWeight.bold,
               ),
               suffixIcon: IconButton(
                 icon: const Icon(Icons.cancel),
-                color: isTextNotEmpty
-                    ? AppColor.blackColor50
-                    : AppColor.blackColor10,
+                color: isTextNotEmpty ? AppColor.textHint : AppColor.textHint,
                 onPressed: onClearPressed,
               ),
             ),
