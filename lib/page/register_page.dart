@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_baseball_record/common/auth_color.dart';
+import 'package:my_baseball_record/common/app_color.dart';
 
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
