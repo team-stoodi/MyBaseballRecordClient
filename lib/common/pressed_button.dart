@@ -26,26 +26,10 @@ class _PressedButtonState extends State<PressedButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: () {
-      //   isPressed = false;
-      //   widget.onTap();
-      // },
-      onTapDown: (_) {
-        setState(() {
-          isPressed = true;
-        });
-      },
-      onTapUp: (_) {
-        setState(() {
-          isPressed = false;
-        });
-        // widget.onTap();
-      },
-      onTapCancel: () {
-        setState(() {
-          isPressed = false;
-        });
-      },
+      onTapDown: (_) => setState(() => isPressed = true),
+      onTapUp: (_) => setState(() => isPressed = false),
+      onTapCancel: () => setState(() => isPressed = false),
+      onTap: widget.onTap,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.0),

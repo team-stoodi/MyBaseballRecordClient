@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_baseball_record/common/app_text_list.dart';
+import 'package:my_baseball_record/common/app_text_style.dart';
 import 'package:my_baseball_record/common/auth_button.dart';
 import 'package:my_baseball_record/common/app_color.dart';
 import 'package:my_baseball_record/page/register_page.dart';
@@ -19,30 +21,20 @@ class IntroPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 8),
-                const Text(
-                  '나의 오늘을\n기록하다.',
-                  style: TextStyle(
-                    color: AppColor.graysWhite,
-                    fontSize: 50,
-                    fontWeight: FontWeight.w900,
-                    height: 1.3,
-                  ),
+                Text(
+                  AppTextList.mainText,
+                  style: AppTextStyle.hero48BB
+                      .copyWith(color: AppColor.graysWhite),
                 ),
-                const SizedBox(height: 18),
-                const Text(
-                  'My Baseball Record',
-                  style: TextStyle(
-                      color: AppColor.graysWhite,
-                      fontSize: 19,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 220),
+                Text(AppTextList.subText,
+                    style: AppTextStyle.h418M
+                        .copyWith(color: AppColor.graysWhite)),
+                const SizedBox(height: 233),
                 AuthButton(
                   onClick: () {},
                   icon: const FaIcon(FontAwesomeIcons.apple),
                   backgroundColor: AppColor.graysWhite,
-                  text: 'Apple로 계속하기',
+                  text: AppTextList.appleText,
                   borderColor: AppColor.transparent,
                   textColor: AppColor.graysBlack,
                   iconColor: AppColor.transparent,
@@ -52,7 +44,7 @@ class IntroPage extends StatelessWidget {
                   onClick: () {},
                   icon: Image.asset('assets/icon/kakao_logo.png'),
                   backgroundColor: AppColor.yellowColor,
-                  text: '카카오로 계속하기',
+                  text: AppTextList.kakaoText,
                   borderColor: AppColor.transparent,
                   textColor: AppColor.graysBlack,
                   iconColor: AppColor.transparent,
@@ -62,7 +54,7 @@ class IntroPage extends StatelessWidget {
                   onClick: () {},
                   icon: Image.asset('assets/icon/naver_logo.png'),
                   backgroundColor: AppColor.greenColor,
-                  text: '네이버로 계속하기',
+                  text: AppTextList.naverText,
                   textColor: AppColor.graysWhite,
                   borderColor: AppColor.graysWhite,
                   iconColor: AppColor.transparent,
@@ -79,7 +71,7 @@ class IntroPage extends StatelessWidget {
                   ),
                   backgroundColor: AppColor.graysBlack,
                   borderColor: AppColor.graysWhite,
-                  text: '이메일로 가입하기',
+                  text: AppTextList.emailText,
                   textColor: AppColor.graysWhite,
                   iconColor: AppColor.transparent,
                 ),

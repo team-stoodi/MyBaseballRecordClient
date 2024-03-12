@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AuthTextStyle {
+class AppTextStyle {
   static const hero48BB =
       TextStyle(fontSize: 48, height: 1.4, fontWeight: FontWeight.w800);
   static const h140B =
