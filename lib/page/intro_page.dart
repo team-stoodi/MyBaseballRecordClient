@@ -4,6 +4,7 @@ import 'package:my_baseball_record/common/app_text_list.dart';
 import 'package:my_baseball_record/common/app_text_style.dart';
 import 'package:my_baseball_record/common/auth_button.dart';
 import 'package:my_baseball_record/common/app_color.dart';
+import 'package:my_baseball_record/page/email_auth_page.dart';
 import 'package:my_baseball_record/page/register_page.dart';
 
 class IntroPage extends StatelessWidget {
@@ -63,7 +64,7 @@ class IntroPage extends StatelessWidget {
                 AuthButton(
                   onClick: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const RegisterPage()));
+                        builder: (context) => const EmailAuthPage()));
                   },
                   icon: Image.asset(
                     'assets/icon/at_logo.png',

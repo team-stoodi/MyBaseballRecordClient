@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_baseball_record/common/app_color.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
 import 'package:my_baseball_record/common/util/validate.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final VoidCallback toggleAuthMode;
+
+  const LoginPage({
+    super.key,
+    required this.toggleAuthMode,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -49,17 +55,20 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
-                      Text(
-                        '회원가입',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.textPrimary20,
+                      GestureDetector(
+                        onTap: widget.toggleAuthMode,
+                        child: const Text(
+                          '회원가입',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.textPrimary20,
+                          ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         ' | ',
                         style: TextStyle(
                           fontSize: 28,
@@ -67,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                           color: AppColor.graysGray,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '로그인',
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),

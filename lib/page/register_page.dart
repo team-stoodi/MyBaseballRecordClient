@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_baseball_record/common/app_color.dart';
-
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
 import 'package:my_baseball_record/common/util/validate.dart';
-import 'package:my_baseball_record/page/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  final VoidCallback toggleAuthMode;
+
+  const RegisterPage({
+    super.key,
+    required this.toggleAuthMode,
+  });
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -67,19 +70,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
-                        },
+                        onTap: widget.toggleAuthMode,
                         child: const Text(
                           '로그인',
                           style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            color: AppColor.textPrimary20,
-                          ),
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              color: AppColor.textPrimary20),
                         ),
                       ),
                     ],
