@@ -84,18 +84,18 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   const SizedBox(height: 32),
-                  AuthTextInputWidget(
-                    textStyle: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                    labelText: '이메일',
-                    hintText: '이메일',
-                    controller: emailController,
-                    onClearPressed: () => emailController.clear(),
-                    isTextNotEmpty: emailController.text.isNotEmpty,
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (String value) {},
-                    onEditingComplete: () {},
-                  ),
+                  // AuthTextInputWidget(
+                  //   textStyle: const TextStyle(
+                  //       fontSize: 24, fontWeight: FontWeight.bold),
+                  //   labelText: '이메일',
+                  //   hintText: '이메일',
+                  //   controller: emailController,
+                  //   onClearPressed: () => emailController.clear(),
+                  //   isTextNotEmpty: emailController.text.isNotEmpty,
+                  //   keyboardType: TextInputType.emailAddress,
+                  //   onChanged: (String value) {},
+                  //   onEditingComplete: () {},
+                  // ),
                   if (!isEmailValid)
                     const Padding(
                       padding: EdgeInsets.only(top: 8),
@@ -111,19 +111,19 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: AppColor.textHint),
                     ),
                   const SizedBox(height: 16),
-                  AuthTextInputWidget(
-                    textStyle: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                    labelText: '비밀번호',
-                    hintText: '비밀번호',
-                    controller: passwordController,
-                    onClearPressed: () => passwordController.clear(),
-                    isTextNotEmpty: passwordController.text.isNotEmpty,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    onChanged: (String value) {},
-                    onEditingComplete: () {},
-                  ),
+                  // AuthTextInputWidget(
+                  //   textStyle: const TextStyle(
+                  //       fontSize: 24, fontWeight: FontWeight.bold),
+                  //   labelText: '비밀번호',
+                  //   hintText: '비밀번호',
+                  //   controller: passwordController,
+                  //   onClearPressed: () => passwordController.clear(),
+                  //   isTextNotEmpty: passwordController.text.isNotEmpty,
+                  //   keyboardType: TextInputType.text,
+                  //   obscureText: true,
+                  //   onChanged: (String value) {},
+                  //   onEditingComplete: () {},
+                  // ),
                   const SizedBox(height: 8),
                   if (!isPasswordValid)
                     const Text(
