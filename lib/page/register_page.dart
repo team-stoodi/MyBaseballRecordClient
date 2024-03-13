@@ -4,6 +4,7 @@ import 'package:my_baseball_record/common/app_text_list.dart';
 import 'package:my_baseball_record/common/app_text_style.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/util/validate.dart';
+import 'package:my_baseball_record/page/main_page.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback toggleAuthMode;
@@ -85,12 +86,13 @@ class _RegisterPageState extends State<RegisterPage> {
         showPasswordCheckInput = true;
       });
       FocusScope.of(context).nextFocus();
+      navigateToMainPage();
     }
-    // if (confirmPassword.isNotEmpty) {
-    //   setState(() {
-    //     showFinalPassword = true;
-    //   });
-    // }
+  }
+
+  void navigateToMainPage() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const MainPage()));
   }
 
   @override
