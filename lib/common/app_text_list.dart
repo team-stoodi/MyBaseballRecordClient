@@ -23,4 +23,8 @@ class AppTextList {
   static const sendResetPasswordEmailText =
       '가입하신 이메일을 입력하시면,\n비밀번호 변경 메일을 발송해드립니다.';
   static const resetLink = '비밀번호 변경 이메일 받기';
+  static const emailNotFoundErrorMessage =
+      '앗! 방금 입력한 주소는 가입한 적이 없어요. 다시 확인해주세요 :)';
+  static const passwordNotFoundErrorMessage =
+      '앗! 비밀번호가 올바르지 않습니다. 다시 확인해주세요 :)';
 }

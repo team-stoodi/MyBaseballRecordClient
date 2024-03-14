@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_baseball_record/common/app_color.dart';
+import 'package:my_baseball_record/common/app_text_style.dart';
 
 class StickyBottomButton extends StatelessWidget {
   final String text;
@@ -15,7 +16,6 @@ class StickyBottomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const greyBtnColor = AppColor.graysBlack20;
-    const textColor = AppColor.graysWhite;
 
     Color buttonColor = enabled ? AppColor.graysBlack : greyBtnColor;
 
@@ -28,8 +28,7 @@ class StickyBottomButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             text,
-            style:
-                const TextStyle(color: textColor, fontWeight: FontWeight.bold),
+            style: AppTextStyle.body315M.copyWith(color: AppColor.graysWhite),
           ),
         ),
       ),
