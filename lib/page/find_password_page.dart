@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_baseball_record/common/app_color.dart';
 import 'package:my_baseball_record/common/app_text_list.dart';
 import 'package:my_baseball_record/common/app_text_style.dart';
+import 'package:my_baseball_record/common/auth_dialog.dart';
 import 'package:my_baseball_record/common/auth_text_input_widget.dart';
 import 'package:my_baseball_record/common/sticky_bottom_button.dart';
 import 'package:my_baseball_record/common/util/validate.dart';
@@ -35,6 +36,17 @@ class _FindPasswordPageState extends State<FindPasswordPage> {
         isInputValid = true;
       });
     }
+  }
+
+  void showResetPasswordDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AuthDialog(
+          email: emailController.text,
+        );
+      },
+    );
   }
 
   @override
@@ -92,7 +104,11 @@ class _FindPasswordPageState extends State<FindPasswordPage> {
               bottom: 0,
               child: StickyBottomButton(
                 text: AppTextList.resetLink,
-                onClick: () {},
+                onClick: () {
+                  if (isInputValid) {
+                    showResetPasswordDialog(context);
+                  }
+                },
                 enabled: isInputValid,
               ),
             ),
