@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
 
 class AuthButton extends StatelessWidget {
   final VoidCallback onClick;
@@ -28,7 +29,7 @@ class AuthButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.0),
           border: Border.all(
-            color: borderColor ?? Colors.transparent,
+            color: borderColor ?? AppColor.transparent,
           ),
           color: backgroundColor,
         ),
@@ -41,13 +42,13 @@ class AuthButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconTheme(
-                  data: IconThemeData(color: textColor ?? Colors.black),
+                  data: IconThemeData(color: textColor ?? AppColor.blackColor),
                   child: icon),
               const SizedBox(width: 8),
               Text(
                 text,
                 style: TextStyle(
-                  color: textColor ?? Colors.black,
+                  color: textColor ?? AppColor.blackColor,
                   fontSize: 16.0,
                 ),
               ),

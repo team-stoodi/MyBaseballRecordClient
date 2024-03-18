@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
 
 class StickyBottomButton extends StatelessWidget {
   final String text;
@@ -13,10 +14,10 @@ class StickyBottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color greyBtnColor = Colors.grey.shade300;
-    const Color textColor = Colors.white;
+    const greyBtnColor = AppColor.blackColor20;
+    const textColor = AppColor.whiteColor;
 
-    Color buttonColor = enabled ? Colors.black : greyBtnColor;
+    Color buttonColor = enabled ? AppColor.blackColor : greyBtnColor;
     // Color textColor = Colors.white;
 
     return BottomAppBar(
