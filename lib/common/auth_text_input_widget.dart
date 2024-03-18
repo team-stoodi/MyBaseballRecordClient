@@ -7,7 +7,7 @@ class AuthTextInputWidget extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final VoidCallback onClearPressed;
-  final bool isTextNotEmpty;
+
   final TextInputType keyboardType;
   final bool obscureText;
   final TextStyle? textStyle;
@@ -21,7 +21,6 @@ class AuthTextInputWidget extends StatelessWidget {
     required this.hintText,
     required this.controller,
     required this.onClearPressed,
-    required this.isTextNotEmpty,
     required this.keyboardType,
     this.obscureText = false,
     this.textStyle,
@@ -50,9 +49,7 @@ class AuthTextInputWidget extends StatelessWidget {
             right: 0,
             child: Text(
               labelText,
-              style:
-                  // AppTextStyle.body413M.copyWith(color: AppColor.primaryBlue1),
-                  AppTextStyle.body413M.copyWith(color: labelTextColor),
+              style: AppTextStyle.body413M.copyWith(color: labelTextColor),
             ),
           ),
           Positioned(
@@ -86,14 +83,13 @@ class AuthTextInputWidget extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: onClearPressed,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.cancel,
                     size: 20,
-                    color:
-                        isTextNotEmpty ? AppColor.textHint : AppColor.textHint,
+                    color: AppColor.textHint,
                   ),
-                  splashColor: AppColor.transparent,
-                  highlightColor: AppColor.transparent,
+                  splashColor: null,
+                  highlightColor: null,
                 ),
               ],
             ),

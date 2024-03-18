@@ -19,4 +19,5 @@ class AppTextList {
   static const passwordConfirmationPrompt = '앞서 입력한 비밀번호를 다시 한번 입력해주세요';
   static const passwordConfirmationSuccessText = '비밀번호 확인 완료!';
   static const divider = ' | ';
+  static const passwordFindText = '비밀번호 찾기';
 }
