@@ -5,7 +5,6 @@ import 'package:my_baseball_record/common/app_text_style.dart';
 import 'package:my_baseball_record/common/auth_button.dart';
 import 'package:my_baseball_record/common/app_color.dart';
 import 'package:my_baseball_record/page/email_auth_page.dart';
-import 'package:my_baseball_record/page/register_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
