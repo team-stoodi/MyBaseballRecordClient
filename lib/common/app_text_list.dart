@@ -20,4 +20,7 @@ class AppTextList {
   static const passwordConfirmationSuccessText = '비밀번호 확인 완료!';
   static const divider = ' | ';
   static const passwordFindText = '비밀번호 찾기';
+  static const sendResetPasswordEmailText =
+      '가입하신 이메일을 입력하시면,\n비밀번호 변경 메일을 발송해드립니다.';
+  static const resetLink = '비밀번호 변경 이메일 받기';
 }
