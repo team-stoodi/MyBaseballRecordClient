@@ -37,7 +37,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const Color selectedColor = AppColor.blackColor;
+    const Color selectedColor = AppColor.graysWhite;
 
     return BottomNavigationBar(
       items: const [

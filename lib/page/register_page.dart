@@ -63,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: AppColor.blackColor10,
+                          color: AppColor.graysGray,
                         ),
                       ),
                       GestureDetector(
@@ -78,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: AppColor.blackColor20,
+                            color: AppColor.textPrimary20,
                           ),
                         ),
                       ),

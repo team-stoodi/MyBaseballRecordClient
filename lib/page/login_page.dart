@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: AppColor.blackColor20,
+                          color: AppColor.textPrimary20,
                         ),
                       ),
                       Text(
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: AppColor.blackColor10,
+                          color: AppColor.graysGray,
                         ),
                       ),
                       Text(
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                   if (isEmailValid)
                     const Text(
                       '비밀번호 찾기와 같은 꼭 필요한 안내 메일이 발송됩니다.',
-                      style: TextStyle(color: AppColor.blackColor50),
+                      style: TextStyle(color: AppColor.textHint),
                     ),
                   const SizedBox(height: 16),
                   AuthTextInputWidget(
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                   if (isPasswordValid)
                     const Text(
                       '영문/숫자/특수문자를 8-16자리로 조합해주세요.',
-                      style: TextStyle(color: AppColor.blackColor50),
+                      style: TextStyle(color: AppColor.textHint),
                     ),
                 ],
               ),
