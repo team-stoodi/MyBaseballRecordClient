@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_baseball_record/common/auth_color.dart';
 import 'package:my_baseball_record/page/intro_page.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "Pretendard",
           textSelectionTheme:
-              const TextSelectionThemeData(cursorColor: Colors.black)),
+              const TextSelectionThemeData(cursorColor: AppColor.blackColor)),
       home: const IntroPage(),
     );
   }
