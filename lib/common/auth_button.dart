@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_baseball_record/common/auth_color.dart';
 
-class AuthButton extends StatelessWidget {
+class AuthButton extends StatefulWidget {
   final VoidCallback onClick;
   final Widget icon;
   final Color backgroundColor;
@@ -22,17 +23,48 @@ class AuthButton extends StatelessWidget {
   });
 
   @override
+  State<AuthButton> createState() => _AuthButtonState();
+}
+
+class _AuthButtonState extends State<AuthButton> {
+  bool isPressed = false;
+
+  @override
   Widget build(BuildContext context) {
+    final currentBorderColor =
+        widget.borderColor?.withOpacity(0.8) ?? AppColor.transparent;
+    final currentTextColor = widget.textColor ?? AppColor.graysBlack;
+    final currentIconColor = widget.iconColor ?? currentTextColor;
+
     return GestureDetector(
-      onTap: onClick,
+      onTapDown: (_) {
+        setState(() {
+          isPressed = true;
+        });
+      },
+      onTapUp: (_) {
+        setState(() {
+          isPressed = false;
+        });
+        widget.onClick();
+      },
+      onTap: () {
+        isPressed = false;
+      },
+
+      // onTap: widget.onClick,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.0),
           border: Border.all(
             width: 0.5,
-            color: borderColor ?? AppColor.transparent,
+            color: isPressed
+                ? currentBorderColor.withOpacity(0.8)
+                : currentBorderColor.withOpacity(1.0),
           ),
-          color: backgroundColor,
+          color: isPressed
+              ? widget.backgroundColor.withOpacity(0.8)
+              : widget.backgroundColor,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -44,15 +76,21 @@ class AuthButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconTheme(
-                    data:
-                        IconThemeData(color: textColor ?? AppColor.graysBlack),
-                    child: icon),
+                Opacity(
+                  opacity: isPressed ? 0.8 : 1.0,
+                  child: IconTheme(
+                      data: IconThemeData(
+                        color: widget.textColor ?? AppColor.graysBlack,
+                      ),
+                      child: widget.icon),
+                ),
                 const SizedBox(width: 8),
                 Text(
-                  text,
+                  widget.text,
                   style: TextStyle(
-                      color: textColor ?? AppColor.graysBlack,
+                      color: isPressed
+                          ? currentIconColor.withOpacity(0.8)
+                          : currentIconColor.withOpacity(1.0),
                       fontSize: 15.0,
                       letterSpacing: 0.2),
                 ),
