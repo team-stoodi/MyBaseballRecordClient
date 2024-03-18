@@ -20,27 +20,77 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   String? emailError;
+  String? passwordError;
+  String? confirmPasswordError;
+
+  bool showPasswordInput = false;
+  bool showPasswordCheckInput = false;
+  bool showConfirmPasswordInput = false;
+  bool showFinalPassword = false;
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
-  void updateStatus() {
+  void updateEmailStatus() {
     final email = emailController.text;
     if (!validateEmail(email)) {
       setState(() {
         emailError = AppTextList.criticalAlertEmailText;
+        showPasswordInput = false;
       });
     } else {
       setState(() {
         emailError = null;
+        showPasswordInput = true;
       });
+      FocusScope.of(context).nextFocus();
     }
+  }
+
+  void updatePasswordStatus() {
+    final password = passwordController.text;
+    if (!validatePassword(password)) {
+      setState(() {
+        passwordError = AppTextList.passwordValidationText;
+        showConfirmPasswordInput = false;
+      });
+    } else {
+      setState(() {
+        passwordError = null;
+        showConfirmPasswordInput = true;
+      });
+      FocusScope.of(context).nextFocus();
+    }
+  }
+
+  void updateConfirmPasswordStatus() {
+    final confirmPassword = confirmPasswordController.text;
+    if (confirmPassword != passwordController.text) {
+      setState(() {
+        confirmPasswordError = AppTextList.passwordConfirmationPrompt;
+        showPasswordCheckInput = false;
+      });
+    } else {
+      setState(() {
+        confirmPasswordError = null;
+        showPasswordCheckInput = true;
+      });
+      FocusScope.of(context).nextFocus();
+    }
+    // if (confirmPassword.isNotEmpty) {
+    //   setState(() {
+    //     showFinalPassword = true;
+    //   });
+    // }
   }
 
   @override
@@ -87,20 +137,98 @@ class _RegisterPageState extends State<RegisterPage> {
                     isTextNotEmpty: emailController.text.isNotEmpty,
                     keyboardType: TextInputType.text,
                     onChanged: (String value) {},
-                    onEditingComplete: updateStatus,
+                    onEditingComplete: updateEmailStatus,
+                    isEmailValid: showPasswordInput,
                   ),
                   const SizedBox(height: 8),
-                  if (emailError == null)
-                    Text(
-                      AppTextList.importantNotificationEmailText,
-                      style: AppTextStyle.caption213R
-                          .copyWith(color: AppColor.textHint),
-                    ),
                   if (emailError != null)
                     Text(
                       emailError!,
                       style: AppTextStyle.caption213R
                           .copyWith(color: AppColor.accentRed100),
+                    ),
+                  if (emailError == null && !showPasswordInput)
+                    Text(
+                      AppTextList.importantNotificationEmailText,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.textHint),
+                    ),
+                  const Visibility(
+                    visible: true,
+                    child: SizedBox(height: 8),
+                  ),
+                  if (showPasswordInput)
+                    AuthTextInputWidget(
+                      obscureText: true,
+                      textStyle: AppTextStyle.body120M
+                          .copyWith(color: AppColor.textPrimary),
+                      labelText: AppTextList.passwordSetupText,
+                      hintText: AppTextList.passwordText,
+                      controller: passwordController,
+                      onClearPressed: () => passwordController.clear(),
+                      isTextNotEmpty: passwordController.text.isNotEmpty,
+                      keyboardType: TextInputType.text,
+                      onChanged: (String value) {},
+                      onEditingComplete: updatePasswordStatus,
+                      isEmailValid: showConfirmPasswordInput,
+                    ),
+                  const SizedBox(height: 8),
+                  if (passwordError != null)
+                    Text(
+                      passwordError!,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.accentRed100),
+                    ),
+                  if (passwordError == null &&
+                      showPasswordInput &&
+                      !showConfirmPasswordInput)
+                    Text(
+                      AppTextList.passwordRequirementsText,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.textHint),
+                    ),
+                  const Visibility(
+                    visible: true,
+                    child: SizedBox(height: 8),
+                  ),
+                  if (showConfirmPasswordInput)
+                    AuthTextInputWidget(
+                      obscureText: true,
+                      textStyle: AppTextStyle.body120M
+                          .copyWith(color: AppColor.textPrimary),
+                      labelText: AppTextList.passwordConfirmationText,
+                      hintText: AppTextList.passwordText,
+                      controller: confirmPasswordController,
+                      onClearPressed: () => confirmPasswordController.clear(),
+                      isTextNotEmpty: confirmPasswordController.text.isNotEmpty,
+                      keyboardType: TextInputType.text,
+                      onChanged: (String value) {},
+                      onEditingComplete: updateConfirmPasswordStatus,
+                      isEmailValid: showFinalPassword,
+                    ),
+                  const SizedBox(height: 8),
+                  if (confirmPasswordError != null)
+                    Text(
+                      confirmPasswordError!,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.accentRed100),
+                    ),
+                  if (confirmPasswordError == null &&
+                      showConfirmPasswordInput &&
+                      !showPasswordCheckInput)
+                    Text(
+                      AppTextList.passwordRequirementsText,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.textHint),
+                    ),
+                  if (passwordController.text ==
+                          confirmPasswordController.text &&
+                      confirmPasswordError == null &&
+                      confirmPasswordController.text.isNotEmpty)
+                    Text(
+                      AppTextList.passwordConfirmationSuccessText,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.accentGreen100),
                     ),
                 ],
               ),

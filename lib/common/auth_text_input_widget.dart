@@ -13,6 +13,7 @@ class AuthTextInputWidget extends StatelessWidget {
   final TextStyle? textStyle;
   final Function(String) onChanged;
   final VoidCallback onEditingComplete;
+  final bool isEmailValid;
 
   const AuthTextInputWidget({
     super.key,
@@ -26,10 +27,14 @@ class AuthTextInputWidget extends StatelessWidget {
     this.textStyle,
     required this.onChanged,
     required this.onEditingComplete,
+    required this.isEmailValid,
   });
 
   @override
   Widget build(BuildContext context) {
+    Color labelTextColor =
+        isEmailValid ? AppColor.textPrimary : AppColor.primaryBlue1;
+
     return Container(
       height: 86,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -46,7 +51,8 @@ class AuthTextInputWidget extends StatelessWidget {
             child: Text(
               labelText,
               style:
-                  AppTextStyle.body413M.copyWith(color: AppColor.primaryBlue1),
+                  // AppTextStyle.body413M.copyWith(color: AppColor.primaryBlue1),
+                  AppTextStyle.body413M.copyWith(color: labelTextColor),
             ),
           ),
           Positioned(
@@ -86,6 +92,8 @@ class AuthTextInputWidget extends StatelessWidget {
                     color:
                         isTextNotEmpty ? AppColor.textHint : AppColor.textHint,
                   ),
+                  splashColor: AppColor.transparent,
+                  highlightColor: AppColor.transparent,
                 ),
               ],
             ),
