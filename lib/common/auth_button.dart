@@ -38,21 +38,25 @@ class AuthButton extends StatelessWidget {
             horizontal: 24.0,
             vertical: 10.0,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconTheme(
-                  data: IconThemeData(color: textColor ?? AppColor.blackColor),
-                  child: icon),
-              const SizedBox(width: 8),
-              Text(
-                text,
-                style: TextStyle(
-                  color: textColor ?? AppColor.blackColor,
-                  fontSize: 16.0,
+          child: SizedBox(
+            height: 32,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconTheme(
+                    data:
+                        IconThemeData(color: textColor ?? AppColor.blackColor),
+                    child: icon),
+                const SizedBox(width: 8),
+                Text(
+                  text,
+                  style: TextStyle(
+                      color: textColor ?? AppColor.blackColor,
+                      fontSize: 17.0,
+                      letterSpacing: 0.2),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
