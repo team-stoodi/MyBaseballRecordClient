@@ -6,6 +6,7 @@ class PressedButton extends StatefulWidget {
   final Widget child;
   final VoidCallback onTap;
   final double borderWidth;
+  final BorderRadiusGeometry? borderRadius;
 
   const PressedButton({
     super.key,
@@ -14,6 +15,7 @@ class PressedButton extends StatefulWidget {
     required this.child,
     required this.onTap,
     required this.borderWidth,
+    this.borderRadius,
   });
 
   @override
@@ -32,7 +34,7 @@ class _PressedButtonState extends State<PressedButton> {
       onTap: widget.onTap,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32.0),
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(32.0),
           border: Border.all(
             width: widget.borderWidth,
             color: isPressed

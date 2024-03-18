@@ -27,4 +27,9 @@ class AppTextList {
       '앗! 방금 입력한 주소는 가입한 적이 없어요. 다시 확인해주세요 :)';
   static const passwordNotFoundErrorMessage =
       '앗! 비밀번호가 올바르지 않습니다. 다시 확인해주세요 :)';
+  static const passwordResetSentMessage = '비밀번호 변경 메일을 발송했어요';
+  static const checkInboxAndLoginImmediatelyAfterPasswordChange =
+      '아래의 메일의 수신함을 확인해주세요 :)\n비밀번호 변경 후, 바로 로그인할 수 있어요';
+  static const loginAgain = '다시 로그인하기';
+  static const resendEmail = '메일 재발송';
 }

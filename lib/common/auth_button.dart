@@ -11,6 +11,7 @@ class AuthButton extends StatelessWidget {
   final Color textColor;
   final Color iconColor;
   final String text;
+  final BorderRadiusGeometry? borderRadius;
 
   const AuthButton({
     super.key,
@@ -21,6 +22,7 @@ class AuthButton extends StatelessWidget {
     required this.borderColor,
     required this.textColor,
     required this.iconColor,
+    this.borderRadius,
   });
 
   @override
@@ -30,6 +32,7 @@ class AuthButton extends StatelessWidget {
       backgroundColor: backgroundColor,
       onTap: onClick,
       borderWidth: 0,
+      borderRadius: borderRadius,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 24.0,
