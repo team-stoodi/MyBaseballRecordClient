@@ -22,6 +22,9 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  String? emailError;
+  String? passwordError;
+
   bool checkEmail = false;
   bool checkPassword = true;
 
@@ -36,10 +39,12 @@ class _LoginPageState extends State<LoginPage> {
     final email = emailController.text;
     if (!validateEmail(email)) {
       setState(() {
+        emailError = AppTextList.emailNotFoundErrorMessage;
         checkEmail = false;
       });
     } else {
       setState(() {
+        emailError = null;
         checkEmail = true;
         checkPassword = false;
       });
@@ -51,10 +56,12 @@ class _LoginPageState extends State<LoginPage> {
     final password = passwordController.text;
     if (!validatePassword(password)) {
       setState(() {
+        passwordError = AppTextList.passwordNotFoundErrorMessage;
         checkPassword = false;
       });
     } else {
       setState(() {
+        passwordError = null;
         checkPassword = false;
       });
       FocusScope.of(context).nextFocus();
@@ -112,7 +119,14 @@ class _LoginPageState extends State<LoginPage> {
                     onEditingComplete: checkEmailStatus,
                     isEmailValid: checkEmail,
                   ),
-                  const SizedBox(height: 19),
+                  const SizedBox(height: 8),
+                  if (emailError != null)
+                    Text(
+                      emailError!,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.accentRed100),
+                    ),
+                  const SizedBox(height: 11),
                   AuthTextInputWidget(
                     obscureText: true,
                     textStyle: AppTextStyle.body120M
@@ -126,7 +140,14 @@ class _LoginPageState extends State<LoginPage> {
                     onEditingComplete: checkPasswordStatus,
                     isEmailValid: checkPassword,
                   ),
-                  const SizedBox(height: 19),
+                  const SizedBox(height: 8),
+                  if (passwordError != null)
+                    Text(
+                      passwordError!,
+                      style: AppTextStyle.caption213R
+                          .copyWith(color: AppColor.accentRed100),
+                    ),
+                  const SizedBox(height: 11),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
